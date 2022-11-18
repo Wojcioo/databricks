@@ -35,3 +35,21 @@ print (country_stats)
 
 X = np.c_[country_stats['GDP per capita']]
 y = np.c_[country_stats['Life satisfaction']]
+
+# COMMAND ----------
+
+country_stats.plot(kind='scatter', x='GDP per capita', y='Life satisfaction')
+plt.show()
+
+# COMMAND ----------
+
+# Select a linear model
+model = sklearn.linear_model.LinearRegression()
+
+# Train the model
+model.fit(X, y)
+
+# Make a prediction for Cyprus
+X_new = [[101994]]
+
+print (model.predict(X_new))
